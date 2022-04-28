@@ -1,7 +1,6 @@
 # go-util
-----
-**go-util** is a repository that will contain utility packages that are small enough to be placed in a separate repository.
-Examples of usage can be found in files with the *_test* suffix
+**go-util** is a repository that will contain utility packages that are small enough to be placed in a separate repository.  
+Examples of usage can be found in files with the *_test* suffix.
 
 ### Contents
 |package|description|
