@@ -22,18 +22,6 @@ type Detector struct {
 	PossibleDelimiters []string
 }
 
-var (
-	ErrEmptySource = errors.New("empty source given")
-	// ErrDefiningDelimiter occures if there are no delimiters from PossibleDelimiters
-	// or input is ragged (each row must have an equal number of delimiters)
-	// See Examples in ./testdata/CSVshouldfail
-	ErrDefiningDelimiter = errors.New("unable to define delimiter")
-	// ErrMultipleDelimiterOptions occures if there are two or more options of possible
-	// delimiters (each row has an equal number of two or more delimiters)
-	// See Examples in ./testdata/CSVshouldfail
-	ErrMultipleDelimiterOptions = errors.New("multiple delimiter options")
-)
-
 var Default = Detector{
 	PossibleDelimiters: []string{",", ";", "\t", "|"},
 }
@@ -46,8 +34,6 @@ func New(possibleDelimiters []string) *Detector {
 		PossibleDelimiters: possibleDelimiters,
 	}
 }
-
-type delimiterCounter map[string]int
 
 // Parse() parses src (CSV file usually) and gives one possible delimiter of values
 // if it can be exactly identified.
@@ -70,6 +56,20 @@ func (d Detector) Parse(src io.Reader, nLines int) (string, error) {
 	}
 	return counter.result()
 }
+
+var (
+	ErrEmptySource = errors.New("empty source given")
+	// ErrDefiningDelimiter occures if there are no delimiters from PossibleDelimiters
+	// or input is ragged (each row must have an equal number of delimiters)
+	// See Examples in ./testdata/CSVshouldfail
+	ErrDefiningDelimiter = errors.New("unable to define delimiter")
+	// ErrMultipleDelimiterOptions occures if there are two or more options of possible
+	// delimiters (each row has an equal number of two or more delimiters)
+	// See Examples in ./testdata/CSVshouldfail
+	ErrMultipleDelimiterOptions = errors.New("multiple delimiter options")
+)
+
+type delimiterCounter map[string]int
 
 func (d Detector) initDelimiterCounterByFirstLine(delimiters []string, fline string) delimiterCounter {
 	delimiterCounter := make(map[string]int)
