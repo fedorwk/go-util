@@ -7,12 +7,12 @@ import (
 	"strings"
 )
 
-// DetectDelimiters parses src (CSV file usually) and gives one possible delimiter of values
+// Parse parses src (CSV file usually) and gives one possible delimiter of values
 // if it can be exactly identified.
 // It uses default Detector, parsed delimiters are: "," ";" "\t" "|"
 // If your file may have another possible delimiter use New() to specify them.
 // First nLines of src will be parsed (-1 for parse until EOF)
-func DetectDelimiters(src io.Reader, nLines int) (string, error) {
+func Parse(src io.Reader, nLines int) (string, error) {
 	return Default.Parse(src, nLines)
 }
 
@@ -35,7 +35,7 @@ func New(possibleDelimiters []string) *Detector {
 	}
 }
 
-// Parse() parses src (CSV file usually) and gives one possible delimiter of values
+// Detector.Parse() parses src (CSV file usually) and gives one possible delimiter of values
 // if it can be exactly identified.
 // Only nLines will be parsed (-1 for parse until EOF)
 func (d Detector) Parse(src io.Reader, nLines int) (string, error) {

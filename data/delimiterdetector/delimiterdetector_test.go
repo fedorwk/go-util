@@ -30,14 +30,14 @@ something expensive;2,000;5
 `
 	// Note: First line of csv shouldn't be blank line
 	csvAsReader := strings.NewReader(yourCSV)
-	delimiter, err := detector.DetectDelimiters(csvAsReader, -1) // second parameter: lines of csv to analyse, -1 for all lines
+	delimiter, err := detector.Parse(csvAsReader, -1) // second parameter: lines of csv to analyse, -1 for all lines
 	if err != nil {
 		panic(err)
 	}
 
 	raggedCSV := strings.Replace(yourCSV, delimiter, ",", -1)
 	// Input is ragged now, last line contains more delimiters than expected
-	_, errRaggedCSV := detector.DetectDelimiters(strings.NewReader(raggedCSV), -1)
+	_, errRaggedCSV := detector.Parse(strings.NewReader(raggedCSV), -1)
 	if errRaggedCSV == nil {
 		panic("ragged input should throw error")
 	}
