@@ -1,0 +1,18 @@
+Should Pass Tests:
+
+{test case #1 name}
+{expected output}
+{csv itself}
+*blank line*
+{test case #2 name}
+{expected output}
+{csv itself}
+...
+
+Should Fail Tests:
+{test case #1 name}
+{csv itself}
+*blank line*
+{test case #1 name}
+{csv itself}
+...

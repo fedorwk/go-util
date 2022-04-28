@@ -1,0 +1,17 @@
+basic case
+;
+h1;h2;h3
+11;12;13
+21;22;23
+31;32;33
+
+one line
+,
+h1,h2,h3,h4
+
+possible delimiters in data not headers
+	
+name	salary
+John	5,000
+Jack	4,500
+James	6,000

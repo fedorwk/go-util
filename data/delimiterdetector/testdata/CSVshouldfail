@@ -1,0 +1,14 @@
+ragged shape
+h1,h2,h3,h4
+11,12,13
+
+empty
+
+two possible delimiters
+h,1|h2|h3|h4
+1,1|12|13|14
+2,1|22|23|24
+
+comma in numbers
+1,000;2,000
+3,000;4,000
