@@ -7,3 +7,5 @@ Examples of usage can be found in files with the *_test* suffix.
 |---|---|
 |**data**|**data processing tools**|
 |delimiterdetector|helps to detect delimiter of structured data stream (CSV mainly)|
+|**infra**|**infrastructure tools and utilities**|
+|postgres-connector|convenient way to connect to a PostgreSQL database with attempts and delays|
