@@ -10,7 +10,7 @@ import (
 
 func Connect(pgconn string, attempts int, attemptDelay time.Duration, ctxTimeout time.Duration) (*pgxpool.Pool, error) {
 	if pgconn == "" {
-		return nil, errors.New("empty postgres connection stringl")
+		return nil, errors.New("empty postgres connection string")
 	}
 	connConfig, err := pgxpool.ParseConfig(pgconn)
 	if err != nil {
