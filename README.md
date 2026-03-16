@@ -5,6 +5,8 @@ Examples of usage can be found in files with the *_test* suffix.
 ### Contents
 |package|description|
 |---|---|
+|**buffer**|generic buffer with choosen overflow handling strategies|
+|**errns**|error namespases for structural error handling|
 |**data**|**data processing tools**|
 |delimiterdetector|helps to detect delimiter of structured data stream (CSV mainly)|
 |**infra**|**infrastructure tools and utilities**|
