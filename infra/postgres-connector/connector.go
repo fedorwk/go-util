@@ -2,10 +2,11 @@ package pgconnector
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"time"
 
 	"github.com/jackc/pgx/v4/pgxpool"
-	"github.com/pkg/errors"
 )
 
 func Connect(pgconn string, attempts int, attemptDelay time.Duration, ctxTimeout time.Duration) (*pgxpool.Pool, error) {
@@ -14,7 +15,7 @@ func Connect(pgconn string, attempts int, attemptDelay time.Duration, ctxTimeout
 	}
 	connConfig, err := pgxpool.ParseConfig(pgconn)
 	if err != nil {
-		return nil, errors.Wrap(err, "err parsing postgres connection string")
+		return nil, fmt.Errorf("err parsing postgres connection string: %w", err)
 	}
 
 	for attempts > 0 {
