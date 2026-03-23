@@ -19,10 +19,10 @@ type WriteBuffer[T any] interface {
 	Close() error
 }
 
-// NewBuffer creates a new stream with the given options.
+// New creates a new stream with the given options.
 // If no buffer size is provided, an unbuffered channel is used.
 // If no overflow behavior is set, WithOverflowBlock is the default.
-func NewBuffer[T any](size int, opts ...option[T]) Buffer[T] {
+func New[T any](size int, opts ...option[T]) Buffer[T] {
 	// Allocate the stream first!
 	s := &bufferBase[T]{
 		done: make(chan struct{}),
